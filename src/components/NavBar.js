@@ -5,29 +5,40 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Nav, Links, Logo, LogoAgain, Navvy } from "../styling/NavStyling";
 import logo from "../styling/logo.png";
 import logo2 from "../styling/logo2.png";
+import { Link } from "react-router-dom";
 
 export default function NavBar({ loggedInOrOut }) {
   return (
     <div>
-      <Router>
-        <div>
-          <Router>
-            <Nav>
-              <Logo src={logo}></Logo>
-              <LogoAgain src={logo2}></LogoAgain>
-              <Navvy>
-                <Links href="/">Home</Links>
-                {loggedInOrOut && <Links href="/login">Login</Links>}
-                {!loggedInOrOut && (
-                  <Links href="/service/home">Tip Here!</Links>
-                )}
-                <Links href="/">About</Links>
-                <Links href="/">FAQ's</Links>
-              </Navvy>
-            </Nav>
-          </Router>
-        </div>
-      </Router>
+      <div>
+        <Nav>
+          <Logo src={logo}></Logo>
+          <LogoAgain src={logo2}></LogoAgain>
+          <Navvy>
+            <Links>
+              <Link to="/">Home</Link>
+            </Links>
+            {!loggedInOrOut && (
+              <Links>
+                <Link to="/login">Customer Login</Link>
+              </Links>
+            )}
+            {!loggedInOrOut && (
+              <Links>
+                <Link to="/swlogin">Worker Login</Link>
+              </Links>
+            )}
+            {loggedInOrOut && (
+              <Links>
+                <Link to="/service/home">Tip Here!</Link>
+              </Links>
+            )}
+            <Links>
+              <Link to="/about">About</Link>
+            </Links>
+          </Navvy>
+        </Nav>
+      </div>
     </div>
   );
 }

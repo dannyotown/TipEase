@@ -5,6 +5,7 @@ import api from "../utils/api";
 import { Box, Fields, RegButtons } from "../styling/RegisterStyling";
 import { useSelector, useDispatch } from "react-redux";
 import { SWCREATESUCCESS, SWCREATEFAIL } from "../actions/index";
+import { Link } from "react-router-dom";
 
 export default function SWRegister(props) {
   const [form, setForm] = React.useState({
@@ -128,7 +129,7 @@ export default function SWRegister(props) {
         />
         <RegButtons>Submit</RegButtons>
       </form>
-      <a href="/swlogin">Already Have an Account?</a>
+      <Link to="/swlogin">Already Have an Account?</Link>
     </Box>
   );
 }

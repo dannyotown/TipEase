@@ -5,6 +5,7 @@ import styled from "styled-components";
 import api from "../utils/api";
 import { useSelector, useDispatch } from "react-redux";
 import { CULOGINSUCCESS, CULOGINFAIL } from "../actions/index";
+import { Link } from "react-router-dom";
 
 function LogIn(props) {
   const [getLogin, setLogin] = useState({
@@ -39,7 +40,7 @@ function LogIn(props) {
   };
   return (
     <LoginDiv>
-      <LoginHeader>Login</LoginHeader>
+      <LoginHeader>Customer Login</LoginHeader>
       <LoginForm onSubmit={onSubmit}>
         <LoginInput
           type="text"
@@ -58,7 +59,7 @@ function LogIn(props) {
           autoComplete="on"
         />
         <LoginButton type="submit">Log In</LoginButton>
-        <LinkA href="/consumer">Create an Account</LinkA>
+        <Link to="/">Create an Account</Link>
       </LoginForm>
     </LoginDiv>
   );
@@ -67,6 +68,7 @@ function LogIn(props) {
 const LoginDiv = styled.div`
   width: 20%;
   margin: 0 auto;
+  margin-top: 2%;
   background-color: #00cccc;
   color: white;
   padding: 1%;

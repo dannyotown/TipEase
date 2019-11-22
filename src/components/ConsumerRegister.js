@@ -5,6 +5,7 @@ import api from "../utils/api";
 import { Box, Fields, RegButtons } from "../styling/RegisterStyling";
 import { CUCREATESUCCESS, CUCREATEFAIL } from "../actions/index";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function ConsumerRegister(props) {
   const [form, setForm] = React.useState({
@@ -90,7 +91,7 @@ export default function ConsumerRegister(props) {
         />
         <RegButtons>Submit</RegButtons>
       </form>
-      <a href="/login">Already Have an Account?</a>
+      <Link to="/login">Already Have an Account?</Link>
     </Box>
   );
 }

@@ -21,35 +21,30 @@ function App() {
   const loggedInOrOut = getToken();
   return (
     <div>
-      <NavBar loggedInOrOut={loggedInOrOut} />
       <Router>
-        <Switch>
-          <Route exact path="/" component={Welcome} />
-          <Route exact path="/about" component={About} />
-          <Route
-            exact
-            path="/login"
-            render={props => {
-              return <Login {...props} />;
-            }}
-          />
+        <NavBar loggedInOrOut={loggedInOrOut} />
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/about" component={About} />
+        <Route
+          exact
+          path="/login"
+          render={props => {
+            return <Login {...props} />;
+          }}
+        />
 
-          <Route
-            exact
-            path="/swlogin"
-            render={props => {
-              return <SWLogin {...props} />;
-            }}
-          />
-          <Route exact path="/service" component={SWRegister} />
-          <Route exact path="/consumer" component={ConsumerRegister} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/swprofile" component={SWProfile} />
-
-          <ProtectedRoute exact path="/service" component={SWRegister} />
-          <ProtectedRoute exact path="/consumer" component={ConsumerRegister} />
-          <ProtectedRoute exact path="/service/home" component={ServiceHome} />
-        </Switch>
+        <Route
+          exact
+          path="/swlogin"
+          render={props => {
+            return <SWLogin {...props} />;
+          }}
+        />
+        <Route exact path="/service" component={SWRegister} />
+        <Route exact path="/consumer" component={ConsumerRegister} />
+        <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/swprofile" component={SWProfile} />
+        <ProtectedRoute exact path="/service/home" component={ServiceHome} />
       </Router>
     </div>
   );

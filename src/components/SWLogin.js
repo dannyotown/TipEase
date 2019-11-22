@@ -5,6 +5,7 @@ import styled from "styled-components";
 import api from "../utils/api";
 import { useSelector, useDispatch } from "react-redux";
 import { SWLOGINSUCCESS, SWLOGINFAIL } from "../actions/index";
+import { Link } from "react-router-dom";
 
 function SWLogin(props) {
   const [getLogin, setLogin] = useState({
@@ -39,7 +40,7 @@ function SWLogin(props) {
   };
   return (
     <LoginDiv>
-      <LoginHeader>SW Login</LoginHeader>
+      <LoginHeader>Service Login</LoginHeader>
       <LoginForm onSubmit={onSubmit}>
         <LoginInput
           type="text"
@@ -56,7 +57,7 @@ function SWLogin(props) {
           placeholder="Password"
         />
         <LoginButton type="submit">Log In</LoginButton>
-        <LinkA href="/service">Create an Account</LinkA>
+        <Link to="/">Create an Account</Link>
       </LoginForm>
     </LoginDiv>
   );
@@ -65,6 +66,7 @@ function SWLogin(props) {
 const LoginDiv = styled.div`
   width: 20%;
   margin: 0 auto;
+  margin-top: 2%;
   background-color: #00cccc;
   color: white;
   padding: 1%;
