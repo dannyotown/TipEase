@@ -1,4 +1,10 @@
-import { SWCREATESUCCESS, SWCREATEFAIL, SWDELETE } from "../actions/index";
+import {
+  SWCREATESUCCESS,
+  SWCREATEFAIL,
+  SWLOGINSUCCESS,
+  SWLOGINFAIL,
+  SWDELETE
+} from "../actions/index";
 
 const initialState = {
   signedIn: false,
@@ -26,6 +32,18 @@ function swReducer(state = initialState, action) {
         company: action.payload.company
       };
     case SWCREATEFAIL:
+      return { ...state };
+    case SWLOGINSUCCESS:
+      return {
+        ...state,
+        signedIn: true,
+        id: action.payload.id,
+        username: action.payload.username,
+        FirstName: action.payload.FirstName,
+        LastName: action.payload.LastName,
+        email: action.payload.email
+      };
+    case SWLOGINFAIL:
       return { ...state };
     case SWDELETE:
       return { ...state, accountDeleted: true };

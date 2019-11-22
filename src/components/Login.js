@@ -3,12 +3,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import api from "../utils/api";
+import { useSelector, useDispatch } from "react-redux";
+import { CULOGINSUCCESS, CULOGINFAIL } from "../actions/index";
 
 function LogIn(props) {
   const [getLogin, setLogin] = useState({
     username: "",
     password: ""
   });
+  const User = useSelector(state => state);
+  const Dispatch = useDispatch();
   const onChangeHandle = e => {
     e.preventDefault();
     setLogin({
@@ -22,10 +26,13 @@ function LogIn(props) {
     api()
       .post("api/customers/login", getLogin)
       .then(response => {
+        Dispatch({ type: CULOGINSUCCESS, payload: response.data.person });
+        console.log(response);
         window.localStorage.setItem("key", response.data.token);
         props.history.push("/profile");
       })
       .catch(error => {
+        Dispatch({ type: CULOGINFAIL });
         console.log("HERE", error);
         alert("Incorrect Login Credentials");
       });

@@ -1,4 +1,10 @@
-import { CUCREATESUCCESS, CUCREATEFAIL, CUDELETE } from "../actions/index";
+import {
+  CUCREATESUCCESS,
+  CUCREATEFAIL,
+  CUDELETE,
+  CULOGINSUCCESS,
+  CULOGINFAIL
+} from "../actions/index";
 
 const initialState = {
   signedIn: false,
@@ -24,6 +30,18 @@ function cuReducer(state = initialState, action) {
         email: action.payload.email
       };
     case CUCREATEFAIL:
+      return { ...state };
+    case CULOGINSUCCESS:
+      return {
+        ...state,
+        signedIn: true,
+        id: action.payload.id,
+        username: action.payload.username,
+        FirstName: action.payload.FirstName,
+        LastName: action.payload.LastName,
+        email: action.payload.email
+      };
+    case CULOGINFAIL:
       return { ...state };
     case CUDELETE:
       return { ...state, accountDeleted: true };

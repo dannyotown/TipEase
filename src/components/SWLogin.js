@@ -3,12 +3,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import api from "../utils/api";
+import { useSelector, useDispatch } from "react-redux";
+import { SWLOGINSUCCESS, SWLOGINFAIL } from "../actions/index";
 
 function SWLogin(props) {
   const [getLogin, setLogin] = useState({
     username: "",
     password: ""
   });
+  const User = useSelector(state => state);
+  const Dispatch = useDispatch();
 
   const onChangeHandle = e => {
     e.preventDefault();
@@ -23,10 +27,12 @@ function SWLogin(props) {
     api()
       .post("api/serviceworker/login", getLogin)
       .then(response => {
+        Dispatch({ type: SWLOGINSUCCESS, payload: response.data.person });
         window.localStorage.setItem("key", response.data.token);
         props.history.push("/swprofile");
       })
       .catch(error => {
+        Dispatch({ type: SWLOGINFAIL });
         console.log(error);
         alert("Incorrect Login Credentials");
       });

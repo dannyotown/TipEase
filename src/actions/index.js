@@ -3,9 +3,13 @@
 export const SWCREATESUCCESS = "SWCREATESUCCESS";
 export const SWCREATEFAIL = "SWCREATEFAIL";
 export const SWDELETE = "SWDELETE";
+export const SWLOGINSUCCESS = "SWLOGINSUCCESS";
+export const SWLOGINFAIL = "SWLOGINFAIL";
 export const CUCREATESUCCESS = "CUCREATESUCCESS";
 export const CUCREATEFAIL = "CUCREATEFAIL";
 export const CUDELETE = "CUDELETE";
+export const CULOGINSUCCESS = "CULOGINSUCCESS";
+export const CULOGINFAIL = "CULOGINFAIL";
 
 // export function deleteAPI(userid) {
 //   return dispatch => {
