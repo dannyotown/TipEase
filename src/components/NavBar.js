@@ -1,7 +1,6 @@
 //JaxAtwood
 
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import { Nav, Links, Logo, LogoAgain, Navvy } from "../styling/NavStyling";
 import logo from "../styling/logo.png";
 import logo2 from "../styling/logo2.png";
