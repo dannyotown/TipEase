@@ -8,24 +8,24 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { DeleteButton } from "../styling/ProfileStyling";
 import { useSelector, useDispatch } from "react-redux";
 import api from "../utils/api";
-import { SWDELETE } from "../actions/index";
+import { CUDELETE } from "../actions/index";
 
-export default function DeleteAccount() {
+export default function CUDeleteAccount() {
   const [open, setOpen] = React.useState(false);
   const User = useSelector(state => state);
   const Dispatch = useDispatch();
-
   const handleClickOpen = () => {
     setOpen(true);
     api()
-      .delete(`/api/serviceworker/${User.id}`)
+      .delete(`/api/customers/${User.cuReducer.id}`)
       .then(res => {
         console.log(res);
-        Dispatch({ type: SWDELETE, payload: res.data });
+        Dispatch({ type: CUDELETE, payload: res.data });
       })
       .catch(err => console.log(err));
   };
 
+  console.log(User.cuReducer.id);
   const DeleteUser = e => {
     localStorage.clear();
     window.location.href = "/";

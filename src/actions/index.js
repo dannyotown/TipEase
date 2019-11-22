@@ -1,8 +1,11 @@
-import api from "../utils/api";
+// import api from "../utils/api";
 
 export const SWCREATESUCCESS = "SWCREATESUCCESS";
 export const SWCREATEFAIL = "SWCREATEFAIL";
 export const SWDELETE = "SWDELETE";
+export const CUCREATESUCCESS = "CUCREATESUCCESS";
+export const CUCREATEFAIL = "CUCREATEFAIL";
+export const CUDELETE = "CUDELETE";
 
 // export function deleteAPI(userid) {
 //   return dispatch => {

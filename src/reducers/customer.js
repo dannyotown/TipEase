@@ -1,4 +1,4 @@
-import { SWCREATESUCCESS, SWCREATEFAIL, SWDELETE } from "../actions/index";
+import { CUCREATESUCCESS, CUCREATEFAIL, CUDELETE } from "../actions/index";
 
 const initialState = {
   signedIn: false,
@@ -8,13 +8,12 @@ const initialState = {
   FirstName: "",
   LastName: "",
   email: "",
-  company: "",
   accountDeleted: false
 };
 
-function swReducer(state = initialState, action) {
+function cuReducer(state = initialState, action) {
   switch (action.type) {
-    case SWCREATESUCCESS:
+    case CUCREATESUCCESS:
       return {
         ...state,
         accountCreated: true,
@@ -22,15 +21,15 @@ function swReducer(state = initialState, action) {
         username: action.payload.username,
         FirstName: action.payload.FirstName,
         LastName: action.payload.LastName,
-        email: action.payload.email,
-        company: action.payload.company
+        email: action.payload.email
       };
-    case SWCREATEFAIL:
+    case CUCREATEFAIL:
       return { ...state };
-    case SWDELETE:
+    case CUDELETE:
       return { ...state, accountDeleted: true };
     default:
       return { ...state };
   }
 }
-export default swReducer;
+
+export default cuReducer;

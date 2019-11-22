@@ -11,12 +11,14 @@ export default function NavBar({ loggedInOrOut }) {
         <div>
           <Router>
             <Nav>
-              <Logo src="logo.png"></Logo>
+              <Logo src={Logo}></Logo>
               <LogoAgain src="logo2.png"></LogoAgain>
               <Navvy>
                 <Links href="/">Home</Links>
-                {!loggedInOrOut && <Links href="/login">Login</Links>}
-                {loggedInOrOut && <Links href="/service/home">Tip Here!</Links>}
+                {loggedInOrOut && <Links href="/login">Login</Links>}
+                {!loggedInOrOut && (
+                  <Links href="/service/home">Tip Here!</Links>
+                )}
                 <Links href="/">About</Links>
                 <Links href="/">FAQ's</Links>
               </Navvy>
