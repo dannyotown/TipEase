@@ -19,11 +19,6 @@ export default function NavBar({ loggedInOrOut }) {
             </Links>
             {!loggedInOrOut && (
               <Links>
-                <Link to="/login">Customer Login</Link>
-              </Links>
-            )}
-            {!loggedInOrOut && (
-              <Links>
                 <Link to="/swlogin">Worker Login</Link>
               </Links>
             )}
