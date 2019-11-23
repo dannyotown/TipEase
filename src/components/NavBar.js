@@ -27,11 +27,9 @@ export default function NavBar({ loggedInOrOut }) {
                 <Link to="/swlogin">Worker Login</Link>
               </Links>
             )}
-            {loggedInOrOut && (
-              <Links>
-                <Link to="/service/home">Tip Here!</Link>
-              </Links>
-            )}
+            <Links>
+              <Link to="/service/home">Tip Here!</Link>
+            </Links>
             <Links>
               <Link to="/about">About</Link>
             </Links>

@@ -98,7 +98,4 @@ const LoginForm = styled.form`
   flex-flow: column nowrap;
   margin-top: 5%;
 `;
-const LinkA = styled.a`
-  margin: 0 auto;
-`;
 export default LogIn;
